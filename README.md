@@ -1,1 +1,2 @@
-# Equipo-5-SSPAC
+# Equipo-5-aruqitectura
+Proyecto del equipo 5
