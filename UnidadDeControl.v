@@ -5,7 +5,7 @@ module UDC(
 	 output reg Memtoreg,
 	 output reg Memtowrite,
 	 output reg[2:0]ALUop,
-	 output reg Regwrite
+	 output reg Regwrite,
 	 output reg RegDst,
 	 output reg Branch,
 	 output reg MemRead,
@@ -14,7 +14,8 @@ module UDC(
 
 always @*
 begin
-	if (op != 000100 | 100011 | 101011){
+	if (op != 000100 | 100011 | 101011)
+	begin
 		RegDst <= 1'b1;          
 		ALUSrc <= 1'b0;
 		Memtoreg <= 1'b0;
@@ -23,32 +24,33 @@ begin
 		MemRead <= 1'b0;
 		Branch <= 1'b0;
 		ALUop <= 3'b010; //
-	}
-	else{
+	end
+	else
+	begin
 		case(op)
 		 6'b000100: //beq
 		 begin
-		     //RegDst <= 1'b0;
+		                 //RegDst <= 1'b0;
 		     ALUSrc <= 1'b0;
-		     //Memtoreg <= 1'b0;
+		                 //Memtoreg <= 1'b0;
 		     Regwrite <= 1'b0;
 		     Memtowrite <= 1'b0;
 		     MemRead <= 1'b0;
 		     Branch <= 1'b1;
 		     ALUop <= 3'b010; //
 		 end
-		 6'100011: //Sw
+		 6'b100011: //Sw
 		 begin
-			 //RegDst <= 1'b0;
+			               //RegDst <= 1'b0;
 		     ALUSrc <= 1'b1;
-		     //Memtoreg <= 1'b0;
+		                  //Memtoreg <= 1'b0;
 		     Regwrite <= 1'b0;
 		     Memtowrite <= 1'b1;
 		     MemRead <= 1'b0;
 		     Branch <= 1'b0;
 		     ALUop <= 3'b010; //
 		 end
-		 6'101011:  //lw
+		 6'b101011:  //lw
 		 begin
 			 RegDst <= 1'b0;
 		     ALUSrc <= 1'b1;
@@ -60,7 +62,7 @@ begin
 		     ALUop <= 3'b010; //
 		 end
      	endcase
-	}
+	end
      
 		 
 end
