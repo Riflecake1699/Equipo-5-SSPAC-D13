@@ -14,19 +14,8 @@ module UDC(
 
 always @*
 begin
-	if (op != 000100 | 100011 | 101011)
-	begin
-		RegDst <= 1'b1;          
-		ALUSrc <= 1'b0;
-		Memtoreg <= 1'b0;
-		Regwrite <= 1'b1;
-		Memtowrite <= 1'b0;
-		MemRead <= 1'b0;
-		Branch <= 1'b0;
-		ALUop <= 3'b010; //
-	end
-	else
-	begin
+
+
 		case(op)
 		 6'b000100: //beq
 		 begin
@@ -61,10 +50,22 @@ begin
 		     Branch <= 1'b0;
 		     ALUop <= 3'b010; //
 		 end
+		 6'b000000:
+		 begin
+		     RegDst <= 1'b1;          
+		     ALUSrc <= 1'b0;
+		     Memtoreg <= 1'b0;
+		     Regwrite <= 1'b1;
+		     Memtowrite <= 1'b0;
+		     MemRead <= 1'b0;
+		     Branch <= 1'b0;
+		     ALUop <= 3'b010; //intruccciones de tipo R
+		 end
      	endcase
-	end
+	
      
 		 
 end
 
 endmodule
+

@@ -2,10 +2,10 @@
 
 module ADD(
     input [31:0]EADD,
-    input Ecuatro,
+    input [31:0]Ecuatro,
     output reg[31:0]SADD  
 );
-assign Ecuatro = 4;
+//assign Ecuatro = 4;
 
 initial 
 begin
