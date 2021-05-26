@@ -36,7 +36,11 @@ always @* begin
             end
             6'b000010:
             begin
-                sel <= 4'0011;
+                sel <= 4'b0011; //MUL
+            end
+            6'011010:
+            begin
+                sel <= 4'b0100; //Div
             end
             endcase
         end    
