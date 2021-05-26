@@ -14,18 +14,20 @@ reg [31:0]REGI[0:31];
 
 initial
 begin
-     $readmemb("BREJ",REGI);
+     $readmemb("TestF1_BReg",REGI);
 end
 
 always @*
 begin
      
+	 Dr1 = REGI[RA1];
+	 Dr2 = REGI[RA2];
+	 
 	 if (Write == 1)
 	 begin
-	     REGI[Dir] = Di;
+	     REGI[Dir] <= Di;
 	 end
-	 Dr1 <= REGI[RA1];
-	 Dr2 <= REGI[RA2];
+
 
 end
 

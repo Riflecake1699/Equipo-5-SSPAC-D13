@@ -8,17 +8,20 @@ module Mem2(
 );
 
 reg [31:0] E [0:31];
-
+//initial
+//begin
+  //   $readmemb("TestF1_MemInst",E);
+//end
 always @*begin
      
 	 if (Ewr == 1)
 	     begin
-		 E[Dir] <= Din;
-		 Dout <= 32'dx;
+		 E[Dir] = Din;
+		 Dout = 32'dx;
 		 end
 	 else
 	     begin
-		 Dout <= E[Dir];
+		 Dout = E[Dir];
 		 end
 	 
 end

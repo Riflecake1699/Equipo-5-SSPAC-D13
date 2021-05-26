@@ -12,35 +12,35 @@ begin
      case(op2)         //8 OPERACIONES AND-, OR-, SUB-, MUL-, DIV-, ADD-, SLT-, NOP.
 	     3'd0: //AND
 		 begin
-			 s<= a & b;
+			 s= a & b;
 		 end
 	     3'd1: //OR
 		 begin 
-		     s<= a | b;
+		     s= a | b;
 		 end	 
 	     3'd2: //sub
          begin		
-    		 s<= a - b;
+    		 s= a - b;
 		 end
 	     3'd3: //MUL
          begin		
-    		 s<= a * b;
+    		 s= a * b;
 		 end
 		 3'd4: //DIV
 		 begin
-		     s<= a / b;
+		     s= a / b;
 		 end
 		 3'd5: //ADD
 		 begin
-		     s<= a + b;
+		     s= a + b;
 		 end
 	     3'd6: // SLT
          begin		 
-		     s<= (a < b) ? 1:0;
+		     s= (a < b) ? 1:0;
 		 end 
 		 3'd7: //NOP
 		 begin
-		     s<= a << 0;
+		     s= a << 0;
 		 end
 	 endcase
 	     Z <=(s)?0:1;

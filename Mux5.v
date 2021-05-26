@@ -1,18 +1,17 @@
 `timescale 1ns/1ns
 
-module Mux31(
-    input [31:0]E,
-    input [31:0]E1,
-    input E2,
-    output reg [31:0]Es
+module Mux5(
+    input [4:0]e,
+    input [4:0]e1,
+    input e2,
+    output reg[4:0]es
 );
 
 always @*
-case (E2)
+case (e2)
     0:
-       Es <= E;
+       es = e;
     1:
-       Es <= E1;
+       es = e1;
 endcase
 endmodule
-

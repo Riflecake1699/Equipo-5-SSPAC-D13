@@ -1,7 +1,7 @@
 `timescale 1ns/1ns
 
 module MDI(
-    input [31:0]address,
+    input address,
     output reg[31:0]Ins
 );
 
@@ -13,7 +13,7 @@ begin
 end
 
 always @* begin
-    Ins <= {MI[address],MI[address+1],MI[address+2],MI[address+3]};
+    Ins = {MI[address],MI[address+1],MI[address+2],MI[address+3]};
 end
 
 endmodule

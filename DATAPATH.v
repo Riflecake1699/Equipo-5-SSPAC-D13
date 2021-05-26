@@ -1,8 +1,7 @@
 `timescale 1ns/1ns
 
 module DATAPATH(
-    input [31:0]E,
-    output reg[31:0]S
+    input Clk
 );
 //CABLES DE SALIDA DE MEMORIA DE INSTRUCCIONES
 wire [31:0]c1;
@@ -19,7 +18,7 @@ wire [2:0]c6;
 wire  c7;
 wire [31:0]c8;
 //cables de salida de pc
-wire c9;
+wire [31:0]c9;
 //cables de salida de ADD 
 wire [31:0]c10;
 //cables de salida de ADD ALU
@@ -38,7 +37,7 @@ wire c20;
 //cables de salida de multiplexor 1 0 [31:0]
 wire [31:0]c21;
 //cables de salida de multiplexor 0 1 [31:0]
-wire  c22;
+wire  [31:0]c22;
 //cables de salida de multiplexor 0 1 [31:0]    multiplexor 1
 wire [31:0]c24;
 //cables de salida de multiplexor 0 1 [31:0]    multiplexor 1
@@ -90,13 +89,13 @@ ALU p(
 //PC:6           ya esta conectado
 PC g(
     .pce(c22),
-    .clk(clk),
+    .clk(Clk),
     .pcs(c9)
 );
 // ADD :7      ya esta conectado
 ADD h(
     .EADD(c9),
-    .Ecuatro(Ecuatro),
+    .Ecuatro(32'd4),
     .SADD(c10)
 );
 //ADD ALU: 8   ya esta conectado

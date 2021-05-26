@@ -1,11 +1,14 @@
 `timescale 1ns/1ns
 
 module PC(
-    input pce,
+    input [31:0]pce,
     input clk,
-    output reg pcs
+    output reg [31:0]pcs
 );
-reg [1:0]regi[0:1]
+
+initial
+pcs = 32'b0;
+
 always @(posedge clk) begin
     pcs = pce;
 end

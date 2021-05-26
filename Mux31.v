@@ -10,11 +10,9 @@ module Mux31(
 always @*
 case (E2)
     0:
-       Es <= E;
+       Es = E;
     1:
-       Es <= E1;
+       Es = E1;
 endcase
 endmodule
-
-
 
