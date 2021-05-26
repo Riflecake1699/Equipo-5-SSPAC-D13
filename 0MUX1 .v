@@ -4,7 +4,7 @@ module Mux_01(
     input [31:0]Me,
     input [31:0]Me1,
     input Me2,
-    output reg[31:0]Ms
+    output reg Ms
 );
 
 always @*
@@ -15,3 +15,8 @@ case (Me2)
        Ms <= Me1 
 endcase
 endmodule
+// multiplexor de 32 bits, y otro deve de ser de 5 bits, que esta localizado en entrada de 
+//banco de registro
+
+
+//

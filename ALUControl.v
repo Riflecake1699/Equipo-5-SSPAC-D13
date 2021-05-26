@@ -11,7 +11,6 @@ begin
      if(Aop == 3'b010)
 	 begin
 	     case (func) //AND-, OR-, SUB-, MUL-, DIV-, ADD-, SLT-, NOP.
-		 begin
 		 6'b100000:
 		     s <=3'b001; //AND
          6'b100010: 
