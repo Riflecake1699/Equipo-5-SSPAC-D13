@@ -1,11 +1,11 @@
-`timescale 1ns/1ns
-
+`timescale 1ps/1ps
 module AND(
-    input AND,
-    input AND1,
-    output reg SAND
+    input a,
+    input b,
+    output reg s
 );
 
-assign SAND = AND & AND1;
-
+always @* begin
+    s <= a & b;
+end  
 endmodule

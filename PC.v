@@ -1,16 +1,15 @@
-`timescale 1ns/1ns
-
+`timescale 1ps/1ps
 module PC(
-    input [31:0]pce,
+    input [31:0]PCI,
     input clk,
-    output reg [31:0]pcs
+    output reg [7:0]PCO
 );
 
-initial
-pcs = 32'b0;
-
-always @(posedge clk) begin
-    pcs = pce;
+initial begin
+    PCO <= 8'd0;
 end
 
+always @(posedge clk) begin
+    PCO <= (PCI)?PCI[7:0]:0;
+end
 endmodule
