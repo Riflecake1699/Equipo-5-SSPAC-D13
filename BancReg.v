@@ -12,7 +12,7 @@ module BancReg(
 reg [31:0]Banco[0:31];
 
 initial begin
-    $readmemh("TestF1_BReg.mem", Banco);
+    $readmemh("bancoreg.mem", Banco);
 end
 
 always @* begin

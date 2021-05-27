@@ -38,7 +38,7 @@ always @* begin
             begin
                 sel <= 4'b0011; //MUL
             end
-            6'011010:
+            6'b011010:
             begin
                 sel <= 4'b0100; //Div
             end
