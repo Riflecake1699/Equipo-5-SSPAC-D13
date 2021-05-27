@@ -42,7 +42,7 @@ always @* begin
         end
         4'b1000:
         begin
-            Res <= OP1<<0;
+            Res <= 32'd0;
         end
         default:
         begin

@@ -2,14 +2,14 @@
 module PC(
     input [31:0]PCI,
     input clk,
-    output reg [7:0]PCO
+    output reg [31:0]PCO
 );
 
 initial begin
-    PCO <= 8'd0;
+    PCO <= 32'd0;
 end
 
 always @(posedge clk) begin
-    PCO <= (PCI)?PCI[7:0]:0;
+    PCO <= (PCI)?PCI:0;
 end
 endmodule

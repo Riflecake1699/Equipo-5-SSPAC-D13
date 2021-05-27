@@ -3,7 +3,7 @@ module Procesador(
     input clk
 );
 
-wire [7:0]a;
+wire [31:0]a;
 wire [31:0]b;
 wire [31:0]c;
 wire [31:0]d;
@@ -29,7 +29,7 @@ wire C11;
 wire [31:0]C12;
 
 PC ins0(.PCI(c), .clk(clk), .PCO(a));
-Adder ins1(.E1({{24{a[7]}},a}), .E2(32'd4), .S(b));
+Adder ins1(.E1(a), .E2(32'd4), .S(b));
 Mux2 ins2(.E1(i), .E2(b), .sel(C2&C11), .S(c));
 InsMem ins3(.InsAd(a), .Ins(d));
 UC ins4(.OP(d[31:26]), .RegDst(C1), .Branch(C2), .MemRead(C3), .MemToReg(C4), .ALUOp(C5), .MemWrite(C6), .ALUSrc(C7), .RegWrite(C8));
