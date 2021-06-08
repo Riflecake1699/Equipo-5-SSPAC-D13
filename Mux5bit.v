@@ -2,12 +2,12 @@
 module Mux5bit(
     input [4:0]E1,
     input [4:0]E2,
-    input sel,
+    input RegDst,
     output reg[4:0]S
 );
 
 always @* begin
-    case (sel)
+    case (RegDst)
         0:
         begin
             S <= E1;

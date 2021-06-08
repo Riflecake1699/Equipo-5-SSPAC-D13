@@ -8,7 +8,7 @@ reg [7:0]IM[0:400];
 reg [7:0] p0, p1, p2, p3; 
 
 initial begin
-    $readmemb("TestF1_MemInst.mem", IM);
+    $readmemb("TestF2_MemInst.mem", IM);
 end
 
 always @* begin

@@ -7,7 +7,27 @@ module ALUControl(
 
 always @* begin
     case (ALUOp)
-        3'b010: 
+        3'b000:     //ADDI      //Sw        //Lw        
+        begin
+            sel <= 4'b0010; //Suma
+        end
+        3'b001:     //Branch
+        begin
+            sel <= 4'b0110;
+        end
+        3'b011:     //ANDI
+        begin
+            sel <= 4'b0000;
+        end
+        3'b100:     //ORI
+        begin
+            sel <= 4'b0001;
+        end
+        3'b101:     //SLTI
+        begin
+            sel <= 4'b0111;
+        end
+        3'b010: //Instrucciones Tipo R
         begin
             case (Func)
             6'b100000: //ADD
@@ -41,6 +61,10 @@ always @* begin
             6'b011010:
             begin
                 sel <= 4'b0100; //Div
+            end
+            default:
+            begin
+                sel <= 4'b0010; // Por defualt es una suma
             end
             endcase
         end    
