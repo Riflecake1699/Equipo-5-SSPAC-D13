@@ -10,7 +10,7 @@ module Mem(
 reg [31:0]Mem[0:3100];
 
 initial begin
-    $readmemh("data.txt", M);
+    $readmemh("data.txt", Mem);
 end
 
 always @* begin

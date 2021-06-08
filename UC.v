@@ -8,8 +8,7 @@ module UC(
     output reg [2:0]ALUOp,
     output reg MemWrite,
     output reg ALUSrc,
-    output reg RegWrite,
-    output reg [5:0]UCBufer
+    output reg RegWrite
 );
 
 always @* begin
@@ -115,6 +114,5 @@ always @* begin
             ALUOp = 3'b010; 
         end
         endcase
-    UCBufer = OP;
 end    
 endmodule
