@@ -10,6 +10,6 @@ initial begin
 end
 
 always @(posedge clk) begin
-    PCO <= PCI;
+    PCO <= (PCI)?PCI:0;
 end
 endmodule

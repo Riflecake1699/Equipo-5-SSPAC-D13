@@ -2,47 +2,38 @@
 module Procesador(
     input clk
 );
-
-wire [31:0]a;
-wire [31:0]b;
-wire [31:0]c;
-wire [31:0]d;
-wire [31:0]e;
-wire [31:0]f;
-wire [31:0]g;
-wire [31:0]h;
-wire [31:0]i;
-wire [31:0]j;
-wire [31:0]k;
-wire [31:0]l;
-wire [31:0]m;
-wire [31:0]n;
-wire [31:0]o;
-wire [31:0]p;
-wire [31:0]q;
-wire [31:0]r;
-wire [31:0]s;
-wire [31:0]t;
-wire [31:0]u;
-wire [31:0]v;
-wire [31:0]w;
-wire [31:0]y;
-wire [31:0]m1;
-wire [31:0]m41;
-wire [31:0]m40;
-wire [31:0]mwd;
-wire [2:0]C5;
-wire [4:0]C9;
-wire [4:0]C13;
-wire [4:0]C14;
-wire [4:0]C15;
-wire [4:0]C16;
-wire [4:0]C17;
-wire [3:0]C10;
-wire C11;
-wire ZF;
-wire BM;
+wire [31:0]C1;
+wire [31:0]C2;
+wire [31:0]C3;
+wire [31:0]C4;
+wire [31:0]C5;
+wire [31:0]C6;
+wire [31:0]C7;
+wire [31:0]C8;
+wire [31:0]C9;
+wire [31:0]C10;
+wire [31:0]C11;
 wire [31:0]C12;
+wire [31:0]C13;
+wire [31:0]C14;
+wire [31:0]C15;
+wire [31:0]C16;
+wire [31:0]C17;
+wire [31:0]C18;
+wire [31:0]C19;
+wire [31:0]C20;
+wire [31:0]C21;
+wire [31:0]C22;
+wire [31:0]C23;
+wire [31:0]C24;
+wire ZF;
+wire ZF1;
+wire [3:0]sel;
+wire [4:0]B1;
+wire [4:0]B2;
+wire [4:0]B3;
+wire [4:0]B4;
+wire [4:0]B5;
 wire [1:0]WB;
 wire [2:0]M;
 wire [4:0]EX;
@@ -51,27 +42,27 @@ wire [2:0]M1;
 wire [4:0]EX1;
 wire [1:0]WB2;
 wire [2:0]M2;
-wire[1:0]WB3;
+wire [1:0]WB3;
+wire PCSrc;
 
-
-Mux2 ins0(.E1(m1), .E2(b), .sel(BM), .S(l)); //Antes del pc
-PC ins1(.PCI(l), .clk(clk), .PCO(a));
-Adder ins2(.E1(a), .E2(32'd4), .S(b));
-bufer1 ins3(.EnAdd(b), .EnInsM(d), .clk(clk), .SalBuf(m), .SalInst(n));
-InsMem ins4(.InsAd(a), .Ins(d));
-UC ins5(.OP(n[31:26]), .RegDst(EX[2]), .Branch(M[2]), .MemRead(M[1]), .MemToReg(WB[0]), .ALUOp(EX[3:1]), .MemWrite(M[0]), .ALUSrc(EX[0]), .RegWrite(WB[1]));
-bufer2 ins6(.EnBuf(m), .EnRd1(o), .EnRd2(p), .EnSX(q), .EnIns1(n[20:16]), .EnIns2(n[15:11]), .EnWB(WB), .EnM(M), .EnEX(EX), .clk(clk), .SalAdd(r), .SalAdd1(s), .SalMux2(t), .SalAlu(u), .SalMux3(C13), .SalMux31(C14), .SalWB(WB1), .SalM(M1), .SalEX(EX1));
-Mux5bit ins7(.E1(C13), .E2(C14), .RegDst(EX[2]), .S(C9)); //Entre Bufer 2 y Bufer 3
-BancReg ins8(.RegEn(WB3[1]), .RR1(n[25:21]), .RR2(n[20:16]), .WriteRegister(C17), .WriteData(mwd), .RD1(o), .RD2(p));
-SignExt ins9(.E(n[15:0]), .S(q));
-ShiftL ins10(.E(u), .S(h));
-Adder ins11(.E1(r), .E2(h), .S(i));
-ALUControl ins12(.Func(u[5:0]), .ALUOp(EX[3:1]), .sel(C10));
-Mux ins13(.E1(u), .E2(t), .sel(EX[0]), .S(v)); //Entre Bufer 2 y Alu
-ALU ins14(.OP1(s), .OP2(v), .sel(C10), .zf(C11), .Res(C12));
-bufer3 ins15(.EnAdd(i), .EnAlRes(C12), .EnBu(t), .EnMux3(C9), .EnWB(WB1), .EnM(M1), .ZF(C11), .clk(clk), .SalMux1(m1), .SalDM(w), .SalDMW(y), .SalBu4(C16), .SalWB(WB2), .SalZF(ZF), .SalM(M2));
-Mem ins16(.Address(w), .WriteData(y), .MemWrite(M2[0]), .MemRead(M2[1]), .ReadData(k));
-AND ins17(.a(M2[2]), .b(ZF), .s(BM));
-bufer4 ins18(.EnRD(k), .EnBuf3(w), .EnBf3(C16), .EnWB(WB2), .clk(clk), .SalMux4(m41), .SalMux40(m40), .SalWR(C17), .SalWB(WB3));
-Mux ins19(.E1(m41), .E2(m40), .sel(WB3[0]), .S(mwd)); //Despues del bufer4
+Mux ins0(.E1(C18), .E2(C3), .sel(PCSrc), .S(C1)); //Antes del contador de programa
+PC ins1(.PCI(C1), .clk(clk), .PCO(C2)); //Contador de programa
+Adder ins2(.E1(C2), .E2(32'd04), .S(C3)); //Sumador arriba de insmem
+InsMem ins3(.InsAd(C2), .Ins(C4));
+buffer1 ins4(.Adder(C3), .Ins(C4), .clk(clk), .SalAdder(C5), .SalIns(C6));
+UC ins5(.OP(C6[31:26]), .RegDst(EX[4]), .Branch(M[2]), .MemRead(M[1]), .MemToReg(WB[0]), .ALUOp(EX[3:1]), .MemWrite(M[0]), .ALUSrc(EX[0]), .RegWrite(WB[1]));
+BancReg ins6(.RegEn(WB3[1]), .RR1(C6[25:21]), .RR2(C6[20:16]), .WriteRegister(B5), .WriteData(C24), .RD1(C7), .RD2(C8));
+SignExt ins7(.E(C6[15:0]), .S(C9));
+buffer2 ins8(.Adder(C5), .RD1(C7), .RD2(C8), .SignEx(C9), .Ins20(C6[20:16]), .Ins15(C6[15:11]), .EnWB(WB), .EnM(M), .EnEX(EX), .clk(clk), .sAdder(C10), .sRD1(C11), .sRD2(C12), .sSignEx(C13), .sIns20(B1), .sIns15(B2), .sWB(WB1), .sM(M1), .sEX(EX1));
+ShiftL ins9(.E(C9), .S(C14));
+Adder ins10(.E1(C10), .E2(C14), .S(C15));
+Mux5bit ins11(.E1(B1), .E2(B2), .RegDst(EX[4]), .S(B3)); 
+Mux ins12(.E1(C13), .E2(C12), .sel(EX[0]), .S(C16));
+ALU ins13(.OP1(C11), .OP2(C16), .sel(sel), .zf(ZF), .Res(C17));
+ALUControl ins14(.Func(C13[5:0]), .ALUOp(EX[3:1]), .sel(sel));
+buffer3 ins15(.clk(clk), .Adder(C15), .ALU(C17), .zf(ZF), .RD2(C12), .WB(WB1), .M(M1), .Mux5(B3), .sAdder(C18), .sALU(C19), .szf(ZF1), .sRD2(C20), .sWB(WB2), .sM(M2), .sMux5(B4));
+AND ins16(.a(ZF1), .b(M2[2]), .s(PCSrc));
+Mem ins17(.Address(C19), .WriteData(C20), .MemWrite(M2[0]), .MemRead(M2[1]), .ReadData(C21));
+buffer4 ins18(.clk(clk), .RData(C21), .ALU(C19), .Mux5(B4), .WB(WB2), .sRData(C22), .sALU(C23), .sMux5(B5), .sWB(WB3));
+Mux ins19(.E1(C22), .E2(C23), .sel(WB3[0]), .S(C24)); //Despues del buffer4
 endmodule

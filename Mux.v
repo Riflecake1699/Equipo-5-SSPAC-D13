@@ -5,6 +5,9 @@ module Mux(
     input sel,
     output reg [31:0]S
 );
+initial begin
+    S<=31'd0;
+end
 always @* 
 begin
     case (sel)

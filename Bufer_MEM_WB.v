@@ -1,16 +1,16 @@
 `timescale 1ps/1ps 
 
 //Creacion del modulo de I/O
-module bufer4(
-    input [31:0]EnRD,
-    input [31:0]EnBuf3,
-    input [4:0]EnBf3,
-    input [1:0]EnWB,
+module buffer4(
     input clk,
-    output reg[31:0]SalMux4,
-    output reg[31:0]SalMux40,
-    output reg[4:0]SalWR,
-    output reg[1:0]SalWB
+    input [31:0]RData,
+    input [31:0]ALU,
+    input [4:0]Mux5,
+    input [1:0]WB,
+    output reg [31:0]sRData,
+    output reg [31:0]sALU,
+    output reg [4:0]sMux5,
+    output reg [1:0]sWB
 );
 
 //Asignacion de reg o wire
@@ -18,10 +18,10 @@ module bufer4(
 
 //Asignaciones, e/o instancias, y/o bloques secuenciales
 always @ (posedge clk) begin    
-    SalMux4 <= EnRD;
-    SalMux40 <= EnBuf3;
-    SalWR <= EnBf3;
-    SalWB <= EnWB;
+    sRData <= RData;
+    sALU <= ALU;
+    sMux5 <= Mux5;
+    sWB <= WB;
 end
 
 endmodule
