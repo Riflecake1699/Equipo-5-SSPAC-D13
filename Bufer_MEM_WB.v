@@ -1,4 +1,4 @@
-`timescale 1ns/1ns 
+`timescale 1ps/1ps 
 
 //Creacion del modulo de I/O
 module bufer4(

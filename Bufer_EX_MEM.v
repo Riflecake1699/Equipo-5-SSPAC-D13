@@ -1,4 +1,4 @@
-`timescale 1ns/1ns 
+`timescale 1ps/1ps 
 
 //Creacion del modulo de I/O
 module bufer3(
@@ -21,7 +21,9 @@ module bufer3(
 
 //Asignacion de reg o wire
 //NA
-
+initial begin
+    SalMux1 <= 32'd0;
+end
 //Asignaciones, e/o instancias, y/o bloques secuenciales
 always @ (posedge clk) begin
     SalMux1 <= EnAdd;

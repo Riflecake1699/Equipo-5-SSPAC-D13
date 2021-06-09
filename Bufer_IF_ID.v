@@ -1,4 +1,4 @@
-`timescale 1ns/1ns
+`timescale 1ps/1ps
 //Creacion del modulo de I/O
 module bufer1(
     input [31:0]EnAdd,
@@ -10,7 +10,9 @@ module bufer1(
 
 //Asignacion de wires o reg
 //Na
-
+initial begin
+    SalBuf <= 32'd0;
+end
 //Asignaciones, e/o instancias, y/o bloques secuenciales
 always @(posedge clk) begin
      SalBuf = EnAdd;

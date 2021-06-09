@@ -1,4 +1,4 @@
-`timescale 1ns/1ns 
+`timescale 1ps/1ps 
 
 //Creacion del modulo de I/O
 module bufer2(
@@ -25,7 +25,9 @@ module bufer2(
 
 //Asignacion de wire o reg
 //NA
-
+initial begin
+    SalAdd <= 32'd0;
+end
 //Asignaciones, e/o instancias, y/o bloques secuenciales
 always @ (posedge clk) begin
     SalAdd <= EnBuf;
