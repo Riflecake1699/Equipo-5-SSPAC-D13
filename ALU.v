@@ -1,4 +1,4 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 module ALU(
     input [31:0]OP1,
     input [31:0]OP2,

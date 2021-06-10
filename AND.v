@@ -1,11 +1,12 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 module AND(
     input a,
     input b,
     output reg s
 );
 
-always @* begin
-    s <= a & b;
-end  
+assign s = a & b;
+/*always @* begin
+    s = a & b;
+end  */
 endmodule

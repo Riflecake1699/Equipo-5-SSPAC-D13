@@ -1,4 +1,4 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 //Creacion del modulo de I/O
 module buffer1(
     input [31:0]Adder,

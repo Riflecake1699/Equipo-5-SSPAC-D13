@@ -1,4 +1,4 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 module PC(
     input [31:0]PCI,
     input clk,
@@ -10,6 +10,9 @@ initial begin
 end
 
 always @(posedge clk) begin
-    PCO <= (PCI)?PCI:0;
+    if (PCI)
+        PCO = PCI;
+    else PCO = 32'b0;
+    /*PCO <= (PCI)?PCI:0;*/
 end
 endmodule

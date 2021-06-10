@@ -1,4 +1,4 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 module UC(
     input [5:0]OP,
     output reg RegDst,
@@ -33,7 +33,7 @@ always @* begin
              MemWrite = 1'b1;
              MemRead = 1'b0;
              Branch = 1'b0;
-             ALUOp = 3'b010; //
+             ALUOp = 3'b000; //
         end
         6'b101011:  //lw
         begin
@@ -41,14 +41,14 @@ always @* begin
              ALUSrc = 1'b1;
              MemToReg = 1'b1;
              RegWrite = 1'b1;
-             MemWrite = 1'b0;
+             MemWrite = 1'b1;
              MemRead = 1'b1;
              Branch = 1'b0;
-             ALUOp = 3'b010; //
+             ALUOp = 3'b000; //
         end
         6'b001000:  //ADDI
         begin
-            RegDst = 1'b0;
+            RegDst = 1'b1;
             ALUSrc = 1'b1;
             MemToReg = 1'b0;
             RegWrite = 1'b1;
@@ -59,29 +59,7 @@ always @* begin
         end
         6'b001101:  //ORI
         begin
-            RegDst = 1'b0;
-            ALUSrc = 1'b1;
-            MemToReg = 1'b0;
-            RegWrite = 1'b1;
-            MemWrite = 1'b0;
-            MemRead = 1'b0;
-            Branch = 1'b0;
-            ALUOp = 3'b100; 
-        end
-        6'b001010:  //SLTI
-        begin
-            RegDst = 1'b0;
-            ALUSrc = 1'b1;
-            MemToReg = 1'b0;
-            RegWrite = 1'b1;
-            MemWrite = 1'b0;
-            MemRead = 1'b0;
-            Branch = 1'b0;
-            ALUOp = 3'b101;
-        end
-        6'b001100:  //ANDI
-        begin
-            RegDst = 1'b0;
+            RegDst = 1'b1;
             ALUSrc = 1'b1;
             MemToReg = 1'b0;
             RegWrite = 1'b1;
@@ -89,6 +67,28 @@ always @* begin
             MemRead = 1'b0;
             Branch = 1'b0;
             ALUOp = 3'b011; 
+        end
+        6'b001010:  //SLTI
+        begin
+            RegDst = 1'b1;
+            ALUSrc = 1'b1;
+            MemToReg = 1'b0;
+            RegWrite = 1'b1;
+            MemWrite = 1'b0;
+            MemRead = 1'b0;
+            Branch = 1'b0;
+            ALUOp = 3'b100;
+        end
+        6'b001100:  //ANDI
+        begin
+            RegDst = 1'b1;
+            ALUSrc = 1'b1;
+            MemToReg = 1'b0;
+            RegWrite = 1'b1;
+            MemWrite = 1'b0;
+            MemRead = 1'b0;
+            Branch = 1'b0;
+            ALUOp = 3'b010; 
         end
 
         6'b000000:      //intruccciones de tipo R

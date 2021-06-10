@@ -1,4 +1,4 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 module ALUControl(
     input [5:0]Func,
     input [2:0]ALUOp,
@@ -15,19 +15,19 @@ always @* begin
         begin
             sel <= 4'b0110;
         end
-        3'b011:     //ANDI
+        3'b010:     //ANDI
         begin
             sel <= 4'b0000;
         end
-        3'b100:     //ORI
+        3'b011:     //ORI
         begin
             sel <= 4'b0001;
         end
-        3'b101:     //SLTI
+        3'b100:     //SLTI
         begin
             sel <= 4'b0111;
         end
-        3'b010: //Instrucciones Tipo R
+        3'b101: //Instrucciones Tipo R
         begin
             case (Func)
             6'b100000: //ADD

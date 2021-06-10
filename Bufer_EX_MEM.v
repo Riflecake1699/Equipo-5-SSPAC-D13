@@ -1,4 +1,4 @@
-`timescale 1ps/1ps 
+`timescale 1ns/1ns 
 
 //Creacion del modulo de I/O
 module buffer3(
@@ -20,13 +20,13 @@ module buffer3(
 );
 
 always @ (posedge clk) begin
-    sAdder <= Adder;
-    sALU <= ALU;
-    szf <= zf;
-    sRD2 <= RD2;
-    sWB <= WB;
-    sM <= M;
-    sMux5 <= Mux5;
+    sAdder = Adder;
+    sALU = ALU;
+    szf = zf;
+    sRD2 = RD2;
+    sWB = WB;
+    sM = M;
+    sMux5 = Mux5;
 end
 
 endmodule

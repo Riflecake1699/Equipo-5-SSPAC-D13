@@ -1,4 +1,4 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 module Mux5bit(
     input [4:0]E1,
     input [4:0]E2,
@@ -10,11 +10,11 @@ always @* begin
     case (RegDst)
         0:
         begin
-            S <= E1;
+            S = E1;
         end
         1:
         begin
-            S <= E2;
+            S = E2;
         end
     endcase
 end

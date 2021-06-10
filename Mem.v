@@ -1,4 +1,4 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 module Mem(
     input [31:0]Address,
     input [31:0]WriteData,
@@ -14,11 +14,11 @@ initial begin
 end
 
 always @* begin
-    if (MemRead && !MemWrite) begin
-        ReadData <= Mem[Address];
+    if (MemRead) begin
+        ReadData = Mem[Address];
     end
-    if (MemWrite && !MemRead) begin
-        Mem[Address] <= WriteData;
+    if (MemWrite) begin
+        Mem[Address] = WriteData;
     end
 end
 endmodule

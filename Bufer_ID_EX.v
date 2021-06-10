@@ -1,4 +1,4 @@
-`timescale 1ps/1ps 
+`timescale 1ns/1ns 
 
 //Creacion del modulo de I/O
 module buffer2(
@@ -28,15 +28,15 @@ module buffer2(
 
 //Asignaciones, e/o instancias, y/o bloques secuenciales
 always @ (posedge clk) begin
-    sAdder <= Adder;
-    sRD1 <= RD1;
-    sRD2 <= RD2;
-    sSignEx <= SignEx;
-    sIns20 <= Ins20;
-    sIns15 <= Ins15;
-    sWB <= EnWB;
-    sM <= EnM;
-    sEX <= EnEX;
+    sAdder = Adder;
+    sRD1 = RD1;
+    sRD2 = RD2;
+    sSignEx = SignEx;
+    sIns20 = Ins20;
+    sIns15 = Ins15;
+    sWB = EnWB;
+    sM = EnM;
+    sEX = EnEX;
 end
 
 endmodule    

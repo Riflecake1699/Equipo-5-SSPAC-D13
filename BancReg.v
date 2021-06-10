@@ -1,4 +1,4 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
 
 module BancReg(
     input RegEn,
@@ -16,8 +16,8 @@ initial begin
 end
 
 always @* begin
-    RD1 <= Banco[RR1];
-    RD2 <= Banco[RR2];
+    RD1 = Banco[RR1];
+    RD2 = Banco[RR2];
     if (RegEn) begin
         Banco[WriteRegister] <= WriteData;
     end
