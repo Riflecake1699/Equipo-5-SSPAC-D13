@@ -2,16 +2,16 @@
 
 module TB_Procesador();
 
-reg TB_clk;
+reg TB_CLK;
 
 Procesador DUV_Fase2(
-    .clk(TB_clk)
+    .CLK(TB_CLK)
 );
 
 always 
-#100 TB_clk = ~TB_clk;
+#100 TB_CLK = ~TB_CLK;
 initial begin
-    TB_clk <= 0;
+    TB_CLK <= 0;
     #8000
     $stop;
 end

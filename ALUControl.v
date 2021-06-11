@@ -27,6 +27,10 @@ always @* begin
         begin
             sel <= 4'b0111;
         end
+        default:
+        begin
+            sel <= 3'bx;
+        end
         3'b101: //Instrucciones Tipo R
         begin
             case (Func)

@@ -13,6 +13,6 @@ always @(posedge clk) begin
     if (PCI)
         PCO = PCI;
     else PCO = 32'b0;
-    /*PCO <= (PCI)?PCI:0;*/
+    //PCO <= (PCI)?PCI:0;
 end
 endmodule

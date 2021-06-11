@@ -7,5 +7,5 @@ module Adder(
 assign S = E1 + E2;
 /*always @* begin
     S <= E1 + E2;
-end  */
+end*/ 
 endmodule

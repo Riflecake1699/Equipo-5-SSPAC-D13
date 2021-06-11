@@ -8,5 +8,5 @@ module AND(
 assign s = a & b;
 /*always @* begin
     s = a & b;
-end  */
+end*/  
 endmodule
