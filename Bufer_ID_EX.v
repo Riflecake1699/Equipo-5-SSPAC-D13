@@ -1,7 +1,7 @@
 `timescale 1ns/1ns 
 
 //Creacion del modulo de I/O
-module bufer2(
+module buffer2(
     input [31:0]EnBuf,
     input [31:0]EnRd1,
     input [31:0]EnRd2,
@@ -29,7 +29,7 @@ module bufer2(
     SalAdd <= 32'd0;
 end*/
 //Asignaciones, e/o instancias, y/o bloques secuenciales
-always @ (posedge clk) begin
+always @(posedge clk) begin
     SalAdd <= EnBuf;
     SalAdd1 <= EnRd1;
     SalMux2 <= EnRd2;

@@ -9,6 +9,7 @@ module BancReg(
     output reg[31:0]RD1,
     output reg[31:0]RD2
 );
+
 reg [31:0]Banco[0:31];
 
 initial begin
@@ -16,10 +17,10 @@ initial begin
 end
 
 always @* begin
-    RD1 = Banco[RR1];
-    RD2 = Banco[RR2];
+    RD1 <= Banco[RR1];
+    RD2 <= Banco[RR2];
     if (RegEn) begin
-        Banco[WriteRegister] <= WriteData;
+        Banco[WriteRegister] = WriteData;
     end
 end
     

@@ -12,6 +12,7 @@ initial begin
 end
 
 always @* begin
-    Ins = {IM[InsAd], IM[InsAd+1], IM[Ins+2], IM[InsAd+3]};
+    Ins = {IM[InsAd], IM[InsAd+1], IM[InsAd+2], IM[InsAd+3]};
 end
+
 endmodule

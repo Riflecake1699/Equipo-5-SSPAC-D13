@@ -18,10 +18,10 @@ module buffer4(
 
 //Asignaciones, e/o instancias, y/o bloques secuenciales
 always @ (posedge clk) begin    
-    sRData = RData;
-    sALU = ALU;
-    sMux5 = Mux5;
-    sWB = WB;
+    sRData <= RData;
+    sALU <= ALU;
+    sMux5 <= Mux5;
+    sWB <= WB;
 end
 
 endmodule

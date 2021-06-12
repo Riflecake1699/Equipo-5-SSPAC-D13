@@ -5,14 +5,12 @@ module PC(
     output reg [31:0]PCO
 );
 
-initial begin
-    PCO <= 32'd0;
-end
-
 always @(posedge clk) begin
-    if (PCI)
+    if (PCI) begin
         PCO = PCI;
-    else PCO = 32'b0;
-    //PCO <= (PCI)?PCI:0;
+    end
+    else begin
+        PCO = 32'd0;
+    end
 end
 endmodule

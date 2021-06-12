@@ -11,11 +11,11 @@ end*/
 always @* 
 begin
     case (sel)
-        1:
+        0:
         begin
             S=E1;    
         end 
-        0:
+        1:
         begin
             S=E2;
         end

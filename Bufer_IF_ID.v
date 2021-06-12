@@ -8,13 +8,10 @@ module buffer1(
     output reg[31:0]SalIns
 );
 
-//Asignacion de wires o reg
-//Na
-
 //Asignaciones, e/o instancias, y/o bloques secuenciales
 always @(posedge clk) begin
-     SalAdder = Adder;
-     SalIns = Ins;   
+     SalAdder <= Adder;
+     SalIns <= Ins;   
 end
 
 endmodule
