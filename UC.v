@@ -50,7 +50,7 @@ always @* begin
         begin
             RegDst <= 1'b0;
             ALUSrc <= 1'b1;
-            MemToReg <= 1'b1;
+            MemToReg <= 1'b0;
             RegWrite <= 1'b1;
             MemWrite <= 1'b0;
             MemRead <= 1'b0;
@@ -61,7 +61,7 @@ always @* begin
         begin
             RegDst <= 1'b0;
             ALUSrc <= 1'b1;
-            MemToReg <= 1'b1;
+            MemToReg <= 1'b0;
             RegWrite <= 1'b1;
             MemWrite <= 1'b0;
             MemRead <= 1'b0;
@@ -72,7 +72,7 @@ always @* begin
         begin
             RegDst <= 1'b0;
             ALUSrc <= 1'b1;
-            MemToReg <= 1'b1;
+            MemToReg <= 1'b0;
             RegWrite <= 1'b1;
             MemWrite <= 1'b0;
             MemRead <= 1'b0;
@@ -83,7 +83,7 @@ always @* begin
         begin
             RegDst <= 1'b0;
             ALUSrc <= 1'b1;
-            MemToReg <= 1'b1;
+            MemToReg <= 1'b0;
             RegWrite <= 1'b1;
             MemWrite <= 1'b0;
             MemRead <= 1'b0;
@@ -111,7 +111,7 @@ always @* begin
             MemWrite <= 1'b0;
             MemRead <= 1'b0;
             Branch <= 1'b0;
-            ALUOp <= 3'b010; 
+            ALUOp <= 3'b101; 
         end
         endcase
 end    
