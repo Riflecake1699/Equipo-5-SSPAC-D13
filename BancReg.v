@@ -20,8 +20,15 @@ always @* begin
     RD1 <= Banco[RR1];
     RD2 <= Banco[RR2];
     if (RegEn) begin
-        Banco[WriteRegister] = WriteData;
+        if (WriteData === 32'dx) begin
+            Banco[WriteRegister] = 32'd0;
+        end
+        else begin
+            Banco[WriteRegister] = WriteData;            
+        end
+        
     end
+    
 end
     
 endmodule

@@ -24,7 +24,7 @@ always @* begin
              Branch <= 1'b1;
              ALUOp <= 3'b001; 
         end
-        6'b100011: //Sw
+        6'b101011: //Sw
         begin
              RegDst <= 1'bx;
              ALUSrc <= 1'b1;
@@ -35,11 +35,11 @@ always @* begin
              Branch <= 1'b0;
              ALUOp <= 3'b000; //
         end
-        6'b101011:  //lw
+        6'b100011:  //lw
         begin
              RegDst <= 1'b0;
              ALUSrc <= 1'b1;
-             MemToReg <= 1'b0;
+             MemToReg <= 1'b1;
              RegWrite <= 1'b1;
              MemWrite <= 1'b0;
              MemRead <= 1'b1;
