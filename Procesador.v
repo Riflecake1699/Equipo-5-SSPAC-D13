@@ -25,6 +25,8 @@ wire [31:0]C19; //Read data a buffer MEM/WB
 wire [31:0]C20; //Read data que paso por buffer
 wire [31:0]C21; //Salida de ALU despues de salir de buffer MEM/WB
 wire [31:0]C22; //Salida de Mux a lado de MEM/WB
+wire [31:0]C23; //Mux a mux de jump
+wire [27:0]J1;
 wire [31:0]B1;
 wire [31:0]B2;
 wire [4:0]B3; //Salida de instruccion 20-16 que pasaron por buffer a mux5bits
@@ -44,10 +46,11 @@ wire [4:0]EX1; //EX que paso por buffer ID/EX
 wire [1:0]WB2; //WB que paso por buffer EX/MEM
 wire [2:0]M2; //M que paso por buffer EX/MEM
 wire [1:0]WB3; //WB que paso por buffer MEM/WB
+wire j;
 
 
 PC ins0(
-    .PCI(C18),
+    .PCI(C23),
     .clk(clk),
     .PCO(C1)
 );
@@ -76,7 +79,8 @@ UC ins4(
     .ALUOp(EX[3:1]),
     .MemWrite(M[0]),
     .ALUSrc(EX[0]),
-    .RegWrite(WB[1])
+    .RegWrite(WB[1]),
+    .jump(j)
 );
 BancReg ins5(
     .RegEn(WB3[1]),
@@ -162,7 +166,7 @@ buffer3 ins14(
     .sWB(WB2),
     .sM(M2)
 );
-Mux ins15( //E1 -> 0 E2 -> 1
+Mux ins15( //E1 -> 0 E2 -> 1 //A lado de PC
     .E1(C2),
     .E2(C15),
     .sel(szf2 & M2[2]),
@@ -191,5 +195,15 @@ Mux ins18( //E1 -> 0 E2 -> 1
     .E2(C20),
     .sel(WB3[0]),
     .S(C22)
+);
+jump ins19(
+    .E(C3[25:0]),
+    .S(J1)
+);
+Mux ins20(
+    .E1(C18),
+    .E2({C2[31:28], J1}),
+    .sel(j),
+    .S(C23)
 );
 endmodule
