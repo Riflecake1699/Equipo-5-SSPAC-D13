@@ -16,17 +16,16 @@ initial begin
     $readmemh("TestF1_BReg.mem", Banco);
 end
 
-always @* begin
+always @(*) begin
     RD1 <= Banco[RR1];
     RD2 <= Banco[RR2];
-    if (RegEn) begin
-        if (WriteData === 32'dx) begin
-            Banco[WriteRegister] = 32'd0;
-        end
-        else begin
-            Banco[WriteRegister] = WriteData;            
-        end
-        
+    if (RegEn == 1) begin
+        // if (WriteData === 32'dx) begin
+        //     Banco[WriteRegister] = 32'd0;
+        // end
+        // else begin
+        Banco[WriteRegister] <= WriteData;            
+        // end
     end
     
 end
