@@ -12,7 +12,7 @@ def shift(n):
 
 path = "lectura.s"
 path2 = "prueba.mem"
-regi = {
+regi = { #Registros de banco de registros con su etiqueta 
     "zero":"00000",
     "at":"00001",
     "v0":"00010",
